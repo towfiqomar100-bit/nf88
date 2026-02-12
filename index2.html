@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Nafisa Khan ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #1a0000;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Intro Screen */
+#intro {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #4b0000, #1a0000);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+#intro h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: gold;
+    text-shadow: 0 0 20px rgba(255,215,0,0.7);
+    margin-bottom: 40px;
+}
+
+#enterBtn {
+    padding: 15px 35px;
+    font-size: 1.2rem;
+    border-radius: 40px;
+    border: none;
+    background: linear-gradient(45deg, #ffd700, #ffcc00);
+    color: #4b0000;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-weight: bold;
+}
+
+#enterBtn:hover {
+    transform: scale(1.15);
+}
+
+/* Main Page */
+#main {
+    display: none;
+    position: relative;
+    top: 20vh;
+    padding: 20px;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: #ffd700;
+}
+
+p {
+    max-width: 600px;
+    margin: 20px auto;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+button {
+    padding: 12px 28px;
+    margin: 15px;
+    font-size: 1rem;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.yesBtn {
+    background: linear-gradient(45deg, #ffd700, #ffcc00);
+    color: #4b0000;
+}
+
+.yesBtn:hover {
+    transform: scale(1.15);
+}
+
+#noBtn {
+    background: #990000;
+    color: white;
+    position: absolute;
+}
+
+/* Floating Hearts */
+.heart {
+    position: absolute;
+    color: rgba(255,0,0,0.7);
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh); opacity: 1; }
+    100% { transform: translateY(-10vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Intro Screen -->
+<div id="intro">
+    <h1>For Nafisa Khan ❤️</h1>
+    <button id="enterBtn" onclick="enterSite()">Enter</button>
+</div>
+
+<!-- Main Romantic Page -->
+<div id="main">
+    <h2>Nafisa Khan ❤️</h2>
+
+    <p>
+        You are not just a name…  
+        you are a feeling.  
+        A quiet storm in my chest,  
+        a warmth I never knew I needed.  
+
+        If love had a face,  
+        it would look like you.
+    </p>
+
+    <h3>Will you be mine forever? 💍</h3>
+
+    <button class="yesBtn" onclick="yesClicked()">Yes, Always ❤️</button>
+    <button id="noBtn" onmouseover="moveNo()">No 🙈</button>
+</div>
+
+<audio id="bgMusic" loop>
+    <source src="I_Wanna_Be_Yours.mp3.mpeg" type="audio/mpeg">
+</audio>
+
+<script>
+function enterSite() {
+    document.getElementById("intro").style.display = "none";
+    document.getElementById("main").style.display = "block";
+    document.getElementById("bgMusic").play();
+    setInterval(createHeart, 400);
+}
+
+function yesClicked() {
+    document.body.innerHTML = `
+        <div style="margin-top:30vh;">
+            <h1 style="font-size:3rem; color:gold;">She Said Yes ❤️</h1>
+            <p style="font-size:1.5rem;">Nafisa Khan, you are my forever.</p>
+        </div>
+    `;
+}
+
+function moveNo() {
+    const btn = document.getElementById("noBtn");
+    btn.style.top = Math.random() * window.innerHeight + "px";
+    btn.style.left = Math.random() * window.innerWidth + "px";
+}
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 15 + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+}
+</script>
+
+</body>
+</html>
